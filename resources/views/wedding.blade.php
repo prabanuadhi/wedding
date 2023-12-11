@@ -83,9 +83,9 @@
     </div>
 
     <div class="section" id="section3">
-        <img class="images img3" id="img3h" src="{{ URL::to('/') }}/assets/loch.svg" alt="location">
-        <img class="images img3" id="img3v" src="{{ URL::to('/') }}/assets/locv.svg" alt="location">
-        <a target="_blank"  href="https://www.google.com/maps/place/lorin+Solo+Hotel,+Jl.+Adi+Sucipto+No.47,+Kenaiban,+Blulukan,+Colomadu,+Karanganyar+Regency,+Central+Java+57174/@-7.5431068,110.7682585,17z/data=!4m6!3m5!1s0x2e7a142335947789:0x543661c39726d136!8m2!3d-7.5431068!4d110.7682585!16s%2Fg%2F11s544stt4"><img class="images btnmap" id="btnmap3h" src="{{ URL::to('/') }}/assets/btnmap.svg" alt="map"></a>
+        <img class="images img3" id="img3h" src="{{ URL::to('/') }}/assets/loch.png" alt="location">
+        <img class="images img3" id="img3v" src="{{ URL::to('/') }}/assets/locv.png" alt="location">
+        <a target="_blank"  href="https://www.google.com/maps/place/lorin+Solo+Hotel,+Jl.+Adi+Sucipto+No.47,+Kenaiban,+Blulukan,+Colomadu,+Karanganyar+Regency,+Central+Java+57174/@-7.5431068,110.7682585,17z/data=!4m6!3m5!1s0x2e7a142335947789:0x543661c39726d136!8m2!3d-7.5431068!4d110.7682585!16s%2Fg%2F11s544stt4"><img class="images btnmap" id="btnmap3h" src="{{ URL::to('/') }}/assets/btnmap.png" alt="map"></a>
         
         <!-- <img class="images img3" id="img3doah" src="{{ URL::to('/') }}/assets/sec3doah.png" alt="doa">
         <img class="images img3" id="img3doav" src="{{ URL::to('/') }}/assets/sec3doav.png" alt="doa"> -->
@@ -132,7 +132,9 @@
                                     </label>
             
                                     <div class="mb-3 text-center">
-                                        <h3>Memproses submit data RSVP</h3>
+                                        <h6 class="text-danger">Maaf, terjadi kesalahan sistem</h6>
+                                        <h6 class="text-success">Salam anda berhasil tersimpan!</h6>
+                                        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
                                         <button type="button" class="btn btn-rsvp px-3 rounded-3" ng-click="submitRSVP()">
                                             Submit RSVP
                                         </button>
@@ -293,35 +295,38 @@
         <div class="container">
             <!-- <h2 class="fw-bold text-center">Momen Bahagia Kami</h2> -->
             <div id="gallery" class="photos-grid-container gallery">
-            <div class="main-photo img-box">
-                <a href="{{ URL::to('/') }}/assets/g1.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg1.jpg" alt="image" /></a>
-            </div>
-            <div>
-                <div class="sub">
-                <div class="img-box"><a href="{{ URL::to('/') }}/assets/g2.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg2.jpg" alt="image" /></a></div>
-                <div class="img-box"><a href="{{ URL::to('/') }}/assets/g3.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg3.jpg" alt="image" /></a></div>
-                <div class="img-box"><a href="{{ URL::to('/') }}/assets/g4.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg4.jpg" alt="image" /></a></div>
-                <div id="multi-link" class="img-box">
-                    <a href="{{ URL::to('/') }}/assets/g5.jpg" class="glightbox" data-glightbox="type: image">
-                    <img src="{{ URL::to('/') }}/assets/sg5.jpg" alt="image" />
-                    <div class="transparent-box">
-                        <div class="caption">
-                        +3
+                <div class="main-photo img-box">
+                    <a href="{{ URL::to('/') }}/assets/g1.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg1.jpg" alt="image" /></a>
+                </div>
+                <div>
+                    <div class="sub">
+                    <div class="img-box"><a href="{{ URL::to('/') }}/assets/g2.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg2.jpg" alt="image" /></a></div>
+                    <div class="img-box"><a href="{{ URL::to('/') }}/assets/g3.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg3.jpg" alt="image" /></a></div>
+                    <div class="img-box"><a href="{{ URL::to('/') }}/assets/g4.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg4.jpg" alt="image" /></a></div>
+                    <div id="multi-link" class="img-box">
+                        <a href="{{ URL::to('/') }}/assets/g5.jpg" class="glightbox" data-glightbox="type: image">
+                        <img src="{{ URL::to('/') }}/assets/sg5.jpg" alt="image" />
+                        <div class="transparent-box">
+                            <div class="caption">
+                            +3
+                            </div>
                         </div>
+                        </a>
                     </div>
-                    </a>
+                    </div>
                 </div>
-                </div>
-            </div>
-            <div id="more-img" class="extra-images-container hide-element">
-                <a href="{{ URL::to('/') }}/assets/g6.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg6.jpg" alt="image" /></a>
-                <a href="{{ URL::to('/') }}/assets/g7.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg7.jpg" alt="image" /></a>
-                <a href="{{ URL::to('/') }}/assets/g8.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg8.jpg" alt="image" /></a>
+                <div id="more-img" class="extra-images-container hide-element">
+                    <a href="{{ URL::to('/') }}/assets/g6.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg6.jpg" alt="image" /></a>
+                    <a href="{{ URL::to('/') }}/assets/g7.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg7.jpg" alt="image" /></a>
+                    <a href="{{ URL::to('/') }}/assets/g8.jpg" class="glightbox" data-glightbox="type: image"><img src="{{ URL::to('/') }}/assets/sg8.jpg" alt="image" /></a>
 
-            </div>
+                </div>
             </div>
         </div>
-        <img src="{{ URL::to('/') }}/assets/foot.svg" id="imgfooter" alt="footer">
+        <div id="madewith">
+            <div id="love">This invitation was made with <span class="text-danger">❤</span> by <span class="fw-bold">Alfath</span></div>
+        </div>
+        <img src="{{ URL::to('/') }}/assets/foot.png" id="imgfooter" alt="footer">
     </div>
 
     <script src="{{ URL::to('/') }}/vendors/jquery/jquery.js"></script>
