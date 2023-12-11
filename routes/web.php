@@ -18,3 +18,5 @@ Route::get('/', function () {
     return redirect()->route('wedding', ['tamu' => 'invitation']);
 });
 Route::get('/{tamu}', [WeddingController::class, 'wedding'])->name('wedding');
+Route::post('getRSVP', [WeddingController::class, 'getRSVP'])->name('get-rsvp');
+Route::post('submitRSVP', [WeddingController::class, 'submitRSVP'])->name('submit-rsvp');

@@ -35,7 +35,7 @@
         <div class="sambutan">
             <img src="{{ URL::to('/') }}/assets/sambutan.png" id="imgsambutan" alt="sambutan">
             <button type="button" class="btn btn-primary btn-buka" onclick="buka()">BUKA UNDANGAN</button>
-            <div class="kepada">Bp. Kntaul</div>
+            <div class="kepada">{{ $tamu }}</div>
         </div>
     </div>
 
@@ -108,6 +108,9 @@
                                         class="form-control"
                                         placeholder="Nama Lengkap"
                                         ng-model="nama"
+                                        @if($nama == '')
+                                        disabled
+                                        @endif
                                     />
                                     </label>
             
@@ -132,10 +135,10 @@
                                     </label>
             
                                     <div class="mb-3 text-center">
-                                        <h6 class="text-danger">Maaf, terjadi kesalahan sistem</h6>
-                                        <h6 class="text-success">Salam anda berhasil tersimpan!</h6>
-                                        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-                                        <button type="button" class="btn btn-rsvp px-3 rounded-3" ng-click="submitRSVP()">
+                                        <h6 ng-show="result === 'n'" class="text-danger">Maaf, terjadi kesalahan sistem</h6>
+                                        <h6 ng-show="result === 'y'" class="text-success">Salam anda berhasil tersimpan!</h6>
+                                        <div ng-show="loading" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                                        <button ng-show="!loading && result === 'x'" type="button" class="btn btn-rsvp px-3 rounded-3" ng-click="submitRSVP()">
                                             Submit RSVP
                                         </button>
                                     </div>
@@ -348,6 +351,11 @@
         });
 
         app.controller('ADController', function ($scope, $rootScope, $http) {
+            @if($nama == '')
+                $scope.nama = 'ulatnek';
+            @endif
+            $scope.result = 'x';
+            $scope.loading = false;
             getPesan();
 
             function getPesan() {
@@ -364,6 +372,24 @@
 
             $scope.submitRSVP = function() {
                 console.log($scope.nama + ' - ' + $scope.rsvp + ' - ' + $scope.pesan);
+                var data = {
+                    user_id : "{{ session('user')->id }}",
+                    
+                }
+                
+                $http.post("{{ config('url_base') }}/api/APIPaymentRequest/StorePaymentRequest", JSON.stringify(data)).then(function (response) {
+                    if(response.data.status === 'S'){
+                        setTimeout(() => {
+                            
+                        }, 2000);
+                    } else {
+                        
+                    }
+                }).catch(function (error) {
+                    // console.log(error);
+                    var errorMsg = error.data.message;
+                    
+                });
             }
         });
     </script>
