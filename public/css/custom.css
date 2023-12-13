@@ -15,9 +15,52 @@
     src: url(../assets/Analogist.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
 body {
     overflow-y: hidden;
 }
+
+/* HTML: <div class="loader"></div> */
+.loading {
+    position: fixed;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(farthest-side,#ED303C 94%,#0000),
+      radial-gradient(farthest-side,#3B8183 94%,#0000),
+      radial-gradient(farthest-side,#FAD089 94%,#0000),
+      radial-gradient(farthest-side,#FF9C5B 94%,#0000),
+      #ED303C;
+    background-size: 105% 105%;
+    background-repeat: no-repeat;
+    animation: l5 2s infinite; 
+}
+
+@keyframes l5 {
+  0%  {background-position: 50% -60px,-50px 50%, 50% calc(100% + 50px),calc(100% + 50px) 50%}
+  20%,
+  25% {background-position: 50% -60px,-60px 50%, 50% calc(100% + 50px),50% 50%}
+  45%,
+  50% {background-position: 50% -60px,-60px 50%, 50% 50%              ,50% 50%}
+  75%,
+  75% {background-position: 50% -60px, 50%  50%, 50% 50%              ,50% 50%}
+  95%,
+  100%{background-position: 50%  50% , 50%  50%, 50% 50%              ,50% 50%}
+}
+
 .overlay {
     position: fixed;
     top: 0;
@@ -26,24 +69,25 @@ body {
     height: 100vh;
     background-color: #000000ad;
     z-index: 3;
+    overflow-y: auto;
 }
 .sambutan {
     position: absolute; 
     left: 50%;
-    top: 7vh;
+    /* top: 5vh; */
 }
 #imgsambutan {
     position: relative;
     left: -50%;
-    height: 86vh;
+    height: 90vh;
     width: auto;
 }
 .btn-buka {
     position: absolute;
-    bottom: 12%;
-    min-width: 35%;
-    left: -18.5%;
-    font-size: 16px;
+    /* bottom: 10%; */
+    /* width: 60%; */
+    left: -50%;
+    /* font-size: 16px; */
     --bs-btn-color: #fff;
     --bs-btn-bg: #c39117;
     --bs-btn-border-color: #c39117;
@@ -62,7 +106,7 @@ body {
 .kepada {
     position: absolute;
     width: 100%;
-    bottom: 29%;
+    bottom: 26.9%;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
@@ -80,6 +124,9 @@ body {
     max-width: 100%;
 }
 
+#section1 a {
+    text-decoration: none;
+}
 #section1 #background-video {
     width: 100vw;
     height: 100vh;
@@ -90,6 +137,9 @@ body {
     top: 0;
     bottom: 0;
     z-index: -1;
+}
+#d, #h, #m, #s {
+    font-weight: bold;
 }
 
 #section1 {
@@ -126,7 +176,7 @@ body {
 }
 
 #countdown .rb{
-    border-right: 2px solid white;
+    border-right: 1.4px solid white;
 }
 
 #section2 {
@@ -262,11 +312,13 @@ body {
 .ucapan h4 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
 }
 
 .ucapan p {
-    font-size: 0.7rem;
+    font-size: 1rem;
     margin-bottom: 0.1rem;
+    font-style: italic;
 }
 
 
@@ -400,7 +452,7 @@ body {
 
 #section6 {
     padding-top: 3rem;
-    padding-bottom: 21%;
+    padding-bottom: 18%;
     background-image: url("../assets/bgarab.png");
     background-size: cover;
     background-position: center;
@@ -509,57 +561,86 @@ body {
   bottom: 0;
 }
 #madewith {
-    position: absolute; 
-    left: 50%;
-    bottom: 30%;
+    position: relative;
+    text-align: center;
+    margin-top: 2rem;
     font-size: 1.3rem;
     font-family: 'Merriweather';
 }
 #love {
-    position: relative;
-    left: -50%;
+    /* position: relative;
+    left: -50%; */
 }
 
 #wheeler {
     position: absolute; 
     left: 50%;
-    bottom: 30px;
+    bottom: 85px;
 }
-.mouse {
-	width: 30px;
-	height: 50px;
-	border: 3px solid #b5974b;
-	border-radius: 60px;
+.scroll {
+	width: 40px;
+	height: 40px;
+	border: 2px solid #c7a362;
+	border-radius: 50%;
 	position: relative;
     left: -50%;
+	animation: down 1.5s infinite;
+	-webkit-animation: down 1.5s infinite;
 	&::before {
 		content: '';
-		width: 7px;
-		height: 7px;
 		position: absolute;
-		top: 5px;
-		left: 50%;
-		transform: translateX(-50%);
-		background-color: #b5974b;
-		border-radius: 50%;
-		opacity: 1;
-		animation: wheel 2s infinite;
-		-webkit-animation: wheel 2s infinite;
+		top: 9px;
+		left: 12px;
+		width: 12px;
+		height: 12px;
+		border-left: 2px solid #c7a362;
+  	border-bottom: 2px solid #c7a362;
+		transform: rotate(-45deg);
 	}
 }
 
-@keyframes wheel {
-	to {
-		opacity: 0;
-		top: 40px;
+@keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(15px);
+	}
+	40% {
+		transform: translate(0);
 	}
 }
 
-@-webkit-keyframes wheel {
-	to {
-		opacity: 0;
-		top: 40px;
+@-webkit-keyframes down {
+	0% {
+		transform: translate(0);
 	}
+	20% {
+		transform: translateY(15px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+#on, #off {
+    position: fixed;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e1b658;
+    border-radius: 50%;
+    padding: 5px;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    display: none;
+}
+#on path, #off path {
+    fill: #e1b658!important;
+    stroke: #e1b658!important;
+}
+#audio {
+    display: none;
 }
 
 @media screen and (orientation:landscape) {
@@ -620,22 +701,23 @@ body {
     /* #section1 #background-video {
         height: 85vh;
     } */
-    .sambutan {
+    /* .sambutan {
         top: 20vh;
-    }
+    } */
     #imgsambutan {
         height: auto;
-        width: 40vh;
+        width: 95vw;
     }
     .btn-buka {
-        font-size: 14px;
-        width: 40vw;
-        left: -20vw;
+        /* font-size: 14px; */
+        width: 40%;
+        /* left: -20vw; */
         bottom: 12%;
-        padding: 1.2%;
+        /* padding: 1.2%; */
     }
     .kepada {
-        bottom: 28%;
+        /* bottom: 28%; */
+        bottom: 27.5%;
     }
 
     #img1v {
@@ -703,6 +785,9 @@ body {
     #sec4kado {
         display: none;
     }
+    .por-pl-0 {
+        padding-left: 0;
+    }
 
     .sec5part {
         min-height: 7.9rem;
@@ -733,6 +818,10 @@ body {
     #section6 {
         padding-top: 0.8rem;
         padding-bottom: 27%;
+    }
+    #madewith {
+        margin-top: 0.8rem;
+        font-size: 0.8rem;
     }
 }
 
